@@ -1,0 +1,24 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "serve": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sssk1led/music-player.git"
+  },
+  "author": "sssk1led",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sssk1led/music-player/issues"
+  },
+  "homepage": "https://github.com/sssk1led/music-player#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.1.0"
+  }
+}
