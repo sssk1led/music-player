@@ -1,19 +1,42 @@
+
+
+function clickOnButtonTrack(id) {
+  const music_id = document.querySelector(`#music_${id}`)
+  const button_id = document.querySelector(`#button_${id}`)
+  const name_id = document.querySelector(`#name_${id}`)
+  const artist_id = document.querySelector(`#artist_${id}`)
+
+  stopedAllSound(music_id)
+  setPlayedTrack(name_id, artist_id)
+  musicPlayPause(music_id, button_id)
+}
+
 function musicPlayPause(music_id, button_id) {
-  const music_id = document.querySelector(music_id)
-  const music_button = document.querySelector(button_id)
-  
-  document.querySelectorAll('.play_music').forEach(element => element.innerHTML = '<i class="fa-solid fa-pause"></i>')
+  if (music_id.paused){
+    music_id.play()
+    button_id.innerHTML = '<i class="fa-solid fa-pause"></i>'
+  } else {
+    music_id.pause()
+  }
+}
+
+function stopedAllSound(music_id) {
+  document.querySelectorAll('.play-pause').forEach(element => element.innerHTML = '<i class="fa-solid fa-play"></i>')
   document.querySelectorAll('audio').forEach(element => {
-    if(element.id !== `track_${id}`){
+    if(element.id !== music_id.id){
       element.pause()
       element.currentTime = 0
     }
   })
+}
 
-  if (music_track.paused){
-    music_button.innerHTML = '<i class="fa-solid fa-play"></i>'
-    music_track.play()
-  } else {
-    music_track.pause()
-  }
+function setPlayedTrack(name_id, artist_id) {
+  const name = document.querySelector(`#name`)
+  const artist = document.querySelector(`#artist`)
+  name.innerHTML = name_id.textContent
+  artist.innerHTML = artist_id.textContent
+}
+
+function setVolume(arguments) {
+  
 }
