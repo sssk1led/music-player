@@ -1,0 +1,62 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: flex;
+}
+
+.theme{
+
+}
+
+.border{
+}
+
+.list-content{
+  position: relative;
+}
+
+.main-block{
+  width: 300px;
+  position: relative;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.music-list{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  list-style: none;
+}
+
+.music-track{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.track-info{
+  flex-direction: column;
+  text-align: start;
+  overflow: hidden;
+}
+
+.music-name{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  max-width: fit-content;
+}
+
+.music-artist{
+  width: fit-content;
+}
+
+.play-pause{
+  height: 40px;
+  min-width: 40px;
+  margin: 5px;
+}
+
