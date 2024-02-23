@@ -2,8 +2,8 @@ const music_list = document.querySelector('.music-list')
 
 function createMusicTrack(music_track_src, music_track_name, music_track_artist, music_track_id) {
   return`
-    <li class="music-track theme">
-      <button id="button_${music_track_id}" class="play-pause list-content"><i class="fa-solid fa-pause"></i></button>
+    <li class="music-track">
+      <button id="button_${music_track_id}" class="play-pause list-content" onclick="musicPlayPause('music_${music_track_id}', 'button_${music_track_id}')"><i class="fa-solid fa-pause"></i></button>
       <div class="track-info">
         <h3 class="music-name list-content">${music_track_name}</h3>
         <h4 class="music-artist list-content">${music_track_artist}</h4>
