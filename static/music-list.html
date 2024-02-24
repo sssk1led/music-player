@@ -17,7 +17,10 @@
           <h4 id="artist" class="music-artist list-content">Исполнитель</h4>
         </div>
       </div>
-      <input class="volume" title="100%" type="range" name="music_time">
+      <div class="controls">
+        <input id="volume-line" class="volume" value="30" title="30%" type="range">
+        <input id="time-line" class="time" value="0" step="0.5" max="175" title="0:00" type="range">
+      </div>
     </nav>
     <div class="main-block">
       <ul class="music-list">

@@ -9,7 +9,10 @@
   padding: 0;
   margin: 0;
 }
-
+html{
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 body {
   display: flex;
   flex-direction: row;
@@ -20,38 +23,7 @@ body {
 a{
   text-decoration: none;
 }
-
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.navigation {
-  display: flex;
-  position: -webkit-sticky;
-  justify-content: space-between;
-  position: sticky;
-  width: 550px;
-  height: fit-content;
-  top: 0;
-  border: 1px solid #363738;
-  border-radius: 12px;
-  background-color: #222222;
-  z-index: 1;
-}
-
-#played-track-info {
-  display: flex;
-  margin: 10px;
-}
-
-#music_played_name {
-  color: var(--music-name-color);
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-.volume {
+input[type=range] {
   appearance: none;
   outline: none;
   cursor: pointer;
@@ -62,62 +34,98 @@ a{
   background-color: transparent;
 }
 
-.volume::before {
+input[type=range]::before {
   width: 100%;
   height: 100%;
 }
 
-.volume::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
   height: 5px;
   background: #828282;
   border-radius: 5px;
 }
 
-.volume::-moz-range-track {
+input[type=range]::-moz-range-track {
   height: 5px;
   background: #828282;
   border-radius: 5px;
 }
 
-.volume::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   height: 5px;
   width: 5px;
   border: none;
   border-radius: 5px;
-  box-shadow: -100px 0 0 100px #eeeeee;
+  box-shadow: -500px 0 0 500px #eeeeee;
 }
 
-.volume::-moz-range-thumb {
+input[type=range]::-moz-range-thumb {
   height: 5px;
   width: 5px; 
   border-radius: 5px;
-  box-shadow: -100px 0 0 100px #eeeeee;
+  box-shadow: -500px 0 0 500px #eeeeee;
   border: 0;
 }
 
-
-.volume::-webkit-slider-thumb:hover {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 5px;
-  width: 5px;
-  border-radius: 5px;
-  box-shadow: -100px 0 0 100px #eeeeee;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-.volume::-moz-range-thumb:hover {
-  height: 5px;
-  width: 5px; 
-  border-radius: 5px;
-  box-shadow: -100px 0 0 100px #eeeeee;
+.navigation {
+  display: flex;
+  position: -webkit-sticky;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  width: 550px;
+  height: 80px;
+  top: 0;
+  border: 1px solid #363738;
+  border-radius: 12px;
+  background-color: #222222;
+  z-index: 1;
 }
 
-.volume:hover:after {
-  content: attr(title);
-  height: 20px;
+#played-track-info {
+  display: flex;
+  margin: 10px;
+  width: 350px;
+  z-index: 1;
 }
+
+#music_played_name {
+  color: var(--music-name-color);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+
+.controls{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-self: center;
+  align-items: end;
+  width: 550px;
+  height: 80px;
+  top: -70px;
+}
+
+#volume-line{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 150px;
+  z-index: 2;
+}
+
+#time-line{
+  width: 530px;
+  z-index: 2;
+}
+
 
 .list-content {
   position: relative;
@@ -155,6 +163,7 @@ a{
   text-align: start;
   overflow: hidden;
   justify-content: space-between;
+  height: fit-content;
 }
 
 .music-name {
@@ -172,6 +181,7 @@ a{
   color: var(--music-artist-color);
   font-size: 18px;
   font-weight: 400;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: fit-content;

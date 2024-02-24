@@ -25,4 +25,8 @@ XHR.onload = () => {
     const music_track_artist = massOfTrackInfo[0]
     music_list.insertAdjacentHTML('afterbegin', createMusicTrack(music_track_src, music_track_name, music_track_artist, music_track_id))
   })
+  document.querySelectorAll('audio').forEach((element) => {
+    element.volume = document.querySelector('.volume').value / 100
+    document.querySelector('.volume').title = document.querySelector('.volume').value + '%'
+  })
 }

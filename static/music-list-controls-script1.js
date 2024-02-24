@@ -1,5 +1,3 @@
-
-
 function clickOnButtonTrack(id) {
   const music_id = document.querySelector(`#music_${id}`)
   const button_id = document.querySelector(`#button_${id}`)
@@ -46,5 +44,4 @@ function setPlayedTrack(id) {
 
   name.innerHTML = name_id.textContent
   artist.innerHTML = artist_id.textContent
-  
 }
