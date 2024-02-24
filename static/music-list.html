@@ -10,12 +10,14 @@
 <body>
   <div class="container">
     <nav class="navigation">
-      <button id="button_sync" class="play-pause list-content"><i class="fa-solid fa-play"></i></button>
-      <div class="track-info">
-        <h3 id="name" class="music-name list-content">ИМЯ</h3>
-        <h4 id="artist" class="music-artist list-content">ФАМИЛИЯ!</h4>
+      <div id="played-track-info">
+        <button id="button_sync" class="play-pause list-content"><i class="fa-solid fa-play"></i></button>
+        <div class="track-info">
+          <h3 id="name" class="music-name list-content">Название песни</h3>
+          <h4 id="artist" class="music-artist list-content">Исполнитель</h4>
+        </div>
       </div>
-      <input type="range" name="music_time">
+      <input class="volume" title="100%" type="range" name="music_time">
     </nav>
     <div class="main-block">
       <ul class="music-list">

@@ -1,5 +1,3 @@
-
-
 function clickOnButtonTrack(id) {
   const music_id = document.querySelector(`#music_${id}`)
   const button_id = document.querySelector(`#button_${id}`)
@@ -10,6 +8,7 @@ function clickOnButtonTrack(id) {
   stopedAllSound(music_id)
   musicPlayPause(music_id, button_id)
 }
+
 
 function musicPlayPause(music_id, button_id) {
   const button_sync = document.querySelector('#button_sync')
@@ -38,7 +37,7 @@ function stopedAllSound(music_id) {
 function setPlayedTrack(id) {
   const name_id = document.querySelector(`#name_${id}`)
   const artist_id = document.querySelector(`#artist_${id}`)
-
+  
   const name = document.querySelector(`#name`)
   const artist = document.querySelector(`#artist`)
   
@@ -47,6 +46,20 @@ function setPlayedTrack(id) {
   const button_id = document.querySelector(`#button_${id}`)
   
   button_sync.onclick = () => musicPlayPause(music_id, button_id)
-  name.innerHTML = name_id.textContent
+  document.querySelector('.volume').oninput = () => changeVolume()
+  name.innerHTML = `<a class='music-name' href='#${name_id.id}'>${name_id.textContent}</a>`
   artist.innerHTML = artist_id.textContent
+}
+
+document.querySelectorAll('audio').forEach(element => {
+  const music_id = document.querySelector(`#music_${--id}`)
+  const button_id = document.querySelector(`#button_${--id}`)
+  element.addEventListener('ended', () => musicPlayPause(music_id, button_id))
+})
+
+function changeVolume() {
+  document.querySelectorAll('audio').forEach((element) => {
+    element.volume = document.querySelector('.volume').value / 100
+    document.querySelector('.volume').title = document.querySelector('.volume').value + '%'
+  })
 }
