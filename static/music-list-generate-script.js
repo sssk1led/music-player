@@ -3,7 +3,7 @@ const music_list = document.querySelector('.music-list')
 function createMusicTrack(music_track_src, music_track_name, music_track_artist, music_track_id) {
   return`
     <li id="music_track_${music_track_id}" class="music-track">
-      <button id="button_${music_track_id}" class="play-pause list-content" onclick="clickOnButtonTrack(${music_track_id})"><i class="fa-solid fa-play"></i></button>
+      <button id="button_${music_track_id}" class="play-pause list-content" onclick="clickOnButtonTrack(${music_track_id}); setPlayedTrack(${music_track_id})"><i class="fa-solid fa-play"></i></button>
       <div class="track-info">
         <h3 id="name_${music_track_id}" class="music-name list-content">${music_track_name}</h3>
         <h4 id="artist_${music_track_id}" class="music-artist list-content">${music_track_artist}</h4>

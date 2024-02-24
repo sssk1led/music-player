@@ -7,8 +7,7 @@ function clickOnButtonTrack(id) {
   const artist_id = document.querySelector(`#artist_${id}`)
 
   stopedAllSound(music_id)
-  setPlayedTrack(name_id, artist_id)
-  musicPlayPause(music_id, button_id)
+  musicPlayPause(music_id, button_id, name_id, artist_id, id)
 }
 
 function musicPlayPause(music_id, button_id) {
@@ -30,13 +29,21 @@ function stopedAllSound(music_id) {
   })
 }
 
-function setPlayedTrack(name_id, artist_id) {
+function setPlayedTrack(id) {
+  const name_id = document.querySelector(`#name_${id}`)
+  const artist_id = document.querySelector(`#artist_${id}`)
   const name = document.querySelector(`#name`)
   const artist = document.querySelector(`#artist`)
-  name.innerHTML = name_id.textContent
-  artist.innerHTML = artist_id.textContent
-}
-
-function setVolume(arguments) {
-  
+  const navigation = document.querySelector(`.navigation`)
+  if (document.querySelector('#button')){
+    document.querySelector('#button').parentNode.removeChild(document.querySelector('#button'))
+    const newButton = document.createElement('button')
+    newButton.id = 'button'
+    newButton.className = "play-pause list-content"
+    newButton.onclick = clickOnButtonTrack(id)
+    newButton.innerHTML = '<i class="fa-solid fa-pause"></i>'
+    name.innerHTML = name_id.textContent
+    artist.innerHTML = artist_id.textContent
+    navigation.prepend(newButton)
+  }
 }
